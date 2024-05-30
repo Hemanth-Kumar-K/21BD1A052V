@@ -1,0 +1,16 @@
+.navbar-brand-custom {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
+
+.navbar-brand-logo {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.navbar-brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}

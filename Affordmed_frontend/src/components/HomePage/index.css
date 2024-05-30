@@ -1,0 +1,47 @@
+.homepage {
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-banner {
+    background-color: #f8f9fa;
+    padding: 50px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-banner h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-banner p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-banner .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.features,
+.promotions {
+    margin-bottom: 40px;
+}
+
+.features h2,
+.promotions h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.feature,
+.promotion {
+    margin-bottom: 20px;
+}
+
+.feature h3,
+.promotion h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
