@@ -1,35 +1,51 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 
 function SpecificProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/getproduct/${id}`);
-        console.log(response.data);
+        // console.log(response.data);
         setProduct(response.data);
       } catch (error) {
         console.error('Error fetching product:', error);
+      } finally {
+        setLoading(false); // Set loading to false after the fetch
       }
     };
     fetchProduct();
   }, [id]);
 
-  // if (!product) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return (
+      <Container className="mt-5 text-center">
+        <Spinner animation="border" />
+        <p>Loading...</p>
+      </Container>
+    );
+  }
+
+  if (!product) {
+    return (
+      <Container className="mt-5 text-center">
+        <p>Product not found.</p>
+      </Container>
+    );
+  }
 
   return (
     <Container className="mt-5">
       <Row>
         <Col md={6}>
           <Card>
-            <Card.Img variant="top" src={product.product_image} alt="name" />
+            <Card.Img variant="top" src={product.product_image} alt={product.name} />
           </Card>
         </Col>
         <Col md={6}>

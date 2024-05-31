@@ -21,7 +21,7 @@ const AllProductsPage = () => {
   const fetchProducts = async (filterParams = {}) => {
     try {
       const response = await axios.get('http://localhost:5000/getproducts', { params: filterParams });
-      console.log(response.data);
+      // console.log(response.data);
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -146,9 +146,9 @@ const AllProductsPage = () => {
           <Card.Body>
             <Card.Title>{product.productName}</Card.Title>
             <Card.Text>
-              <strong>Category:</strong> {product.category}<br />
+              <strong>Category:</strong> {product.product_category}<br />
               <strong>Company:</strong> {product.company}<br />
-              <strong>Price:</strong> ${product.price}<br />
+              <strong>Price:</strong> ${product.product_price}<br />
               <strong>Rating:</strong> {product.rating} stars<br />
               <strong>Discount:</strong> {product.discount}%<br />
               <strong>Availability:</strong> {product.availability ? 'In Stock' : 'Out of Stock'}
